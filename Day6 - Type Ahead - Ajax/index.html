@@ -8,14 +8,54 @@
 <body>
 
   <form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
+    <input type="text" class="search" placeholder="Book Title or Author's Name">
     <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
+      <li>Filter by book title</li>
+      <li>or author name</li>
     </ul>
   </form>
 <script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+const endpoint = 'https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json';
+
+const books = [];
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => books.push(...data));
+
+function findMatches(wordToMatch, books) {
+  return books.filter(book => {
+    // Figure out if Book Title or Author match
+    const regex = new RegExp(wordToMatch, 'gi');
+    return book.title.match(regex) || book.author.match(regex);
+  });
+}
+
+function numberWithCommas(x){
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); 
+}
+
+function displayMatches(){
+  const matchArray = findMatches(this.value, books);
+  const html = matchArray.map(book => {
+    const regex = new RegExp(this.value, 'gi');
+    const bookTitle = book.title.replace(regex, `<span class="hl">${this.value}</span>`);
+    const authorName = book.author.replace(regex, `<span class="hl">${this.value}</span>`);
+
+    return `
+      <li>
+        <span class="name">${bookTitle}, ${authorName}</span>
+        <span class="length">Pages: ${numberWithCommas(book.pages)}</span>
+      </li>
+    `;
+  }).join('');
+  suggestions.innerHTML = html;
+}
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+
 
 </script>
 </body>
