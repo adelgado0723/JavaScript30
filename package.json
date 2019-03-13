@@ -1,0 +1,36 @@
+{
+  "name": "JavaScript30",
+  "version": "1.0.0",
+  "description": "A course put together by [Wes Bos](https://www.wesbos.com) that has you work on thirty different Javasript tasks over a course of 30 days.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adelgado0723/JavaScript30.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adelgado0723/JavaScript30/issues"
+  },
+  "homepage": "https://github.com/adelgado0723/JavaScript30#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1"
+  },
+  "dependencies": {
+    "@babel/code-frame": "^7.0.0",
+    "@babel/parser": "^7.3.4",
+    "@babel/traverse": "^7.3.4",
+    "@babel/types": "^7.3.4",
+    "ajv": "^6.9.1",
+    "eslint-scope": "^4.0.2",
+    "eslint-visitor-keys": "^1.0.0"
+  }
+}
