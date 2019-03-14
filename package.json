@@ -1,20 +1,18 @@
 {
-  "name": "JavaScript30",
+  "name": "javascript30",
   "version": "1.0.0",
-  "description": "A course put together by [Wes Bos](https://www.wesbos.com) that has you work on thirty different Javasript tasks over a course of 30 days.",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "description": "A 30-day Javascript Course to Brush up.",
+  "main": "code.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adelgado0723/JavaScript30.git"
   },
-  "keywords": [],
+  "keywords": [
+    "javascrip"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -22,15 +20,17 @@
   },
   "homepage": "https://github.com/adelgado0723/JavaScript30#readme",
   "devDependencies": {
-    "babel-eslint": "^10.0.1"
-  },
-  "dependencies": {
-    "@babel/code-frame": "^7.0.0",
-    "@babel/parser": "^7.3.4",
-    "@babel/traverse": "^7.3.4",
-    "@babel/types": "^7.3.4",
-    "ajv": "^6.9.1",
-    "eslint-scope": "^4.0.2",
-    "eslint-visitor-keys": "^1.0.0"
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.3.0",
+    "prettier": "^1.16.4"
   }
 }
