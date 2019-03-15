@@ -37,18 +37,50 @@
       // Info
       console.info('This is an information box');
 
-      // Testing
-      console.assert(p.classList.contains('classBeingSearchedFor'), 'That is wrong');
-
-      // clearing
-
-      // Viewing DOM Elements
-
-      // Grouping together
-
+      
+      // Testing 
+      console.assert(p.classList.contains('classBeingSearchedFor'), 'That is wrong'); 
+      
+      // clearing 
+      console.clear(); 
+      
+      // Viewing DOM Elements 
+      console.log(p); 
+      
+      // Grouping together 
+      dogs.forEach( dog => { 
+        console.groupCollapsed(`${dog.name}`); 
+        console.log(`This is ${dog.name}.`); 
+        console.log(`${dog.name} is ${dog.age} years old.`); 
+        console.log(`${dog.name} is ${dog.age * 7} dog years old.`); 
+        console.groupEnd(`${dog.name}`); 
+        });
+      
       // counting
+      console.count('One');
+      console.count('One');
+      console.count('One');
+      console.count('Two');
+      console.count('Two');
+      console.count('Three');
+      console.count('Three');
+      console.count('Three');
+      console.count('Three');
+      console.count('Four');
+      console.count('Four');
 
       // timing
+      console.time('fetching data');
+      fetch('https://api.github.com/users/adelgado0723')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+      // table
+      console.table(dogs);
+
     </script>
   </body>
 </html>
