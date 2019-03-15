@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+      function makeGreen() {
+        p.style.color = '#BADA55';
+        p.style.fontSize = '50px';
+      }
+
+      const p = document.querySelector('p');
+      // Regular
+      console.log('hello');
+
+      // Interpolated
+      console.log('This is an example of %s', 'interpolation');
+
+      // Styled
+      console.log(
+        '%c I am some awesome text!',
+        'font-size:50px; background:red, text-shadow: 10px 10px 0 blue'
+      );
+
+      // warning!
+      console.warn('This is a warning!');
+
+      // Error :|
+      console.error('This is a warning!');
+
+      // Info
+      console.info('This is an information box');
+
+      // Testing
+      console.assert(p.classList.contains('classBeingSearchedFor'), 'That is wrong');
+
+      // clearing
+
+      // Viewing DOM Elements
+
+      // Grouping together
+
+      // counting
+
+      // timing
+    </script>
+  </body>
+</html>
