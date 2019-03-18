@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  </head>
+  <body>
+    <h1>Try and guess the secret key 🔑🔑🔑 !</h1>
+    <script>
+      const pressed = [];
+      const secretKey = 'leeanne';
+
+      window.addEventListener('keyup', e => {
+        console.log(e.key);
+        pressed.push(e.key);
+        // the first arguement tells splice where to start
+        // if it is negative, it starts at the end of the array.
+        // Second arg tells it how many items to remove. Here, we
+        // remvove all items past the length of the secret key.
+        pressed.splice(-(secretKey.length - 1), pressed.length - secretKey.length);
+        if (pressed.join('').includes(secretKey)) {
+          console.log(pressed.join(''));
+          console.log('DING DING DING!\nYou guessed the secret key!!!');
+          cornify_add();
+        }
+        console.log(pressed);
+      });
+    </script>
+  </body>
+</html>
