@@ -67,21 +67,32 @@
     <div class="wrapper">
       <h2>Favorite Techniques</h2>
       <p></p>
-      <ul class="plates">
+      <ul class="techniques">
         <li>Loading Techniques...</li>
       </ul>
-      <form class="add-items">
-        <input type="text" name="item" placeholder="Item Name" required />
-        <input type="submit" value="+ Add Item" />
-      </form>
+
+      <div class="grid-container-master">
+        <form class="add-items">
+          <div class="grid-container-top">
+            <input type="text" name="item" placeholder="Item Name" required />
+            <input type="submit" value="+ Add Item" />
+          </div>
+        </form>
+        <div class="grid-container-bottom">
+          <input type="submit" value="Check All" />
+          <input type="submit" value="Uncheck All" />
+          <input type="submit" value="Delete All" />
+        </div>
+      </div>
     </div>
 
     <script>
       const addItems = document.querySelector('.add-items');
-      const itemsList = document.querySelector('.plates');
+      const itemsList = document.querySelector('.techniques');
+      const buttonGroup = document.querySelector('.grid-container-bottom');
 
       // Checking local store to populate array
-      const items = JSON.parse(localStorage.getItem('items')) || [];
+      let items = JSON.parse(localStorage.getItem('items')) || [];
 
       // write submit event handler function
       function addItem(e) {
@@ -104,12 +115,11 @@
       function populateList(techniques = [], techniqueList) {
         techniqueList.innerHTML = techniques
           .map((technique, i) => {
+            const done = technique.done ? 'checked' : '';
             return `
             <li>
-              <input type="checkbox" data-index=${i} id="item${i}" ${
-              techniques.done
-            } ? 'checked' : ''>
-              <label for="item${i}">${plate.text}</label>
+              <input type="checkbox" data-index=${i} id="item${i}" ${done} />
+              <label for="item${i}">${technique.text}</label>
             </li>
           `;
           })
@@ -118,11 +128,38 @@
       function toggleDone(e) {
         // skip unless e is an input
         if (!e.target.matches('input')) return;
+        const inputElement = e.target;
+        const inputIndex = inputElement.dataset.index;
+        items[inputIndex].done = !items[inputIndex].done;
+        localStorage.setItem('items', JSON.stringify(items));
+        populateList(items, itemsList);
+      }
+      function performBulkAction(e) {
+        console.log(e.target.getAttribute('value'));
+        const action = e.target.getAttribute('value');
+        if (action === 'Check All') {
+          items.forEach(technique => {
+            technique.done = true;
+          });
+        } else if (action === 'Uncheck All') {
+          items.forEach(technique => {
+            technique.done = false;
+          });
+        } else if (action === 'Delete All') {
+          items = items.filter(technique => {
+            return technique.done === false;
+          });
+        }
+        populateList(items, itemsList);
       }
 
       // add 'submit' event listener to the form
+      addItems.addEventListener('submit', addItem);
+      itemsList.addEventListener('click', toggleDone);
+      buttonGroup.addEventListener('click', performBulkAction);
 
       // populate list
+      populateList(items, itemsList);
     </script>
   </body>
 </html>
