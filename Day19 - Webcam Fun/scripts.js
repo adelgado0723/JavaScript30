@@ -16,7 +16,15 @@ function getVideo() {
     })
     .catch(err => console.error('Please Allow Web Cam Access!', err));
 }
-
+function redEffect(pixels) {
+  // Each pixel takes up 4 spaces in the array:
+  // Red, Green, Blue, and Alpha
+  for (let i = 0; i < pixels.data.length; i += 4) {
+    pixels.data[i + 0] = pixels.data[i + 0] + 200;
+    pixels.data[i + 1] = pixels.data[i + 1] - 50;
+    pixels.data[i + 2] = pixels.data[i + 2] * 0.5;
+  }
+}
 function paintToCanvas() {
   const width = video.videoWidth;
   const height = video.videoHeight;
@@ -26,7 +34,13 @@ function paintToCanvas() {
 
   return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
-  }, 16);
+
+    let pixels = ctx.getImageData(0, 0, width, height);
+    console.log(pixels);
+    pixels = redEffect(pixels);
+    console.log(pixels);
+    ctx.putImageData(pixels, 0, 0);
+  }, 6000);
 }
 
 function takePhoto() {
@@ -37,11 +51,21 @@ function takePhoto() {
   // Take the data out of the canvas
   const data = canvas.toDataURL('image/jpeg');
   console.log(data);
+
+  // Creating a new link in the document for
+  // the snapshot
   const link = document.createElement('a');
   link.href = data;
+
+  // Setting image to be downloadable upon click
   link.setAttribute('download', 'snapshot');
   link.textContent = 'Download';
+
+  // Setting the html of the anchor tag
   link.innerHTML = `<img src="${data}" alt="SnapShot"/>`;
+
+  // Inserting each snapshot at the "front of
+  // the line" in the strip.
   strip.insertBefore(link, strip.firstChild);
 }
 getVideo();
