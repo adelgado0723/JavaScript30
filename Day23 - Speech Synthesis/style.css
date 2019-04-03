@@ -122,6 +122,7 @@ h1 {
   font-weight: 100;
   font-family: 'Pacifico', cursive;
   text-shadow: 3px 3px 0 #c150d8;
+  color: #f7f7f7;
 }
 
 .voiceinator input,
@@ -156,6 +157,7 @@ input[type='select'] {
   border-bottom: 5px solid #c150d8;
   cursor: pointer;
   position: relative;
+  color: #f7f7f7;
 }
 
 .voiceinator button:active {
