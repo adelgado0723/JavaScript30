@@ -48,7 +48,7 @@ Type text here for and then press the "Speak" button to hear it 👍</textarea
           .join('');
       }
       function setVoice() {
-        msg.voice = voice.find(voice => voice.name === this.value);
+        msg.voice = voices.find(voice => voice.name === this.value);
         toggle();
       }
       function toggle(startOver = true) {
