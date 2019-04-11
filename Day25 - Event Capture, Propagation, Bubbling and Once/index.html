@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Understanding JavaScript's Capture</title>
+  </head>
+  <body class="bod">
+    <div class="one Meruteria-1-hex">
+      <div class="two Meruteria-2-hex">
+        <div class="three Meruteria-3-hex"></div>
+      </div>
+    </div>
+
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      div {
+        width: 100%;
+        padding: 100px;
+      }
+
+      .one {
+        /* background: rgb(49, 4, 134); */
+      }
+
+      .two {
+        /* background: rgb(197, 184, 2); */
+      }
+
+      .three {
+        /* background: rgb(1, 68, 18); */
+      }
+      /* Color Theme Swatches in Hex */
+      .Meruteria-1-hex {
+        background: #2a3659;
+      }
+      .Meruteria-2-hex {
+        background: #425944;
+      }
+      .Meruteria-3-hex {
+        background: #f28b0c;
+      }
+    </style>
+
+    <button></button>
+    <script>
+      const divs = document.querySelectorAll('div');
+      const button = document.querySelector('button');
+
+      function logText(e) {
+        console.log(this.classList.value);
+        e.stopPropagation();
+        // console.log(this);
+      }
+
+      button.addEventListener(
+        'click',
+        () => {
+          console.log('CLICK!!!!!!!!!!!!!!!');
+        },
+        { once: true }
+      );
+      divs.forEach(div =>
+        div.addEventListener('click', logText, {
+          capture: false,
+          once: true
+        })
+      );
+    </script>
+  </body>
+</html>
