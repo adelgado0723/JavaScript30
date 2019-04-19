@@ -224,6 +224,27 @@
 </style>
 
 <script>
+  const triggers = document.querySelectorAll('.cool > li');
+  const background = document.querySelector('.dropdownBackground');
+  const nav = document.querySelector('.top');
+
+  function handleEnter() {
+    this.classList.add('trigger-enter');
+    // Inside of setTimeout, we use an arrow function so that
+    // "this" will be the same "this"as in the calling parent element
+    setTimeout(() => { 
+      // The "&&" makes sure that the second class is only added if
+      // "this" contains the first one
+      this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active')
+    }, 150);
+
+  }
+
+
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+
+
 </script>
 
 </body>
