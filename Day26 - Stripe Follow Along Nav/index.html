@@ -18,60 +18,49 @@
             <div class="bio">
               <img class="icon" src="https://andy-delgado.com/media/CartoonSelf.png" />
               <p>
-                Wes Bos sure does love web development. He teaches things like JavaScript, CSS and
-                BBQ. Wait. BBQ isn't part of web development. It should be though!
+                Andy Delgado is a software developer from Miami, Fl. Hw enjoys learning about web
+                development, spending time with my family, and practicing Jiu Jitsu.
               </p>
             </div>
+            /
           </div>
         </li>
         <li>
-          <a href="#">Courses</a>
-          <ul class="dropdown courses">
+          <a href="#">Projects</a>
+          <ul class="dropdown projects">
             <li>
-              <span class="code">RFB</span>
-              <a href="https://ReactForBeginners.com">React For Beginners</a>
+              <span class="code">Geek Peek</span>
+              <a href="https://github.com/adelgado0723/GeekPeek">Django ECommerce Application</a>
             </li>
             <li>
-              <span class="code">ES6</span>
-              <a href="https://ES6.io">ES6 For Everyone</a>
+              <span class="code">Werewolf</span>
+              <a href="https://github.com/adelgado0723/Werewolf"
+                >Text-based multiplayer chat game</a
+              >
             </li>
             <li>
-              <span class="code">NODE</span>
-              <a href="https://LearnNode.com">Learn Node</a>
+              <span class="code">Steg Tool</span>
+              <a href="https://github.com/adelgado0723/Steg-Tool">Text-in-Image Steganography</a>
             </li>
             <li>
-              <span class="code">STPU</span>
-              <a href="https://SublimeTextBook.com">Sublime Text Power User</a>
+              <span class="code">Decision Tree</span>
+              <a href="https://github.com/adelgado0723/DecisionTreeGenerator"
+                >Decision Tree Generator w/GUI</a
+              >
             </li>
             <li>
-              <span class="code">WTF</span>
-              <a href="http://Flexbox.io">What The Flexbox?!</a>
-            </li>
-            <li>
-              <span class="code">GRID</span>
-              <a href="https://CSSGrid.io">CSS Grid</a>
-            </li>
-            <li>
-              <span class="code">LRX</span>
-              <a href="http://LearnRedux.com">Learn Redux</a>
-            </li>
-            <li>
-              <span class="code">CLPU</span>
-              <a href="http://CommandLinePowerUser.com">Command Line Power User</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="http://MasteringMarkdown.com">Mastering Markdown</a>
+              <span class="code">RSA</span>
+              <a href="https://github.com/adelgado0723/RSAText-FileEncryption"
+                >RSA Text File Encryption</a
+              >
             </li>
           </ul>
         </li>
         <li>
           <a href="#">Other Links</a>
           <ul class="dropdown dropdown3">
-            <li><a class="button" href="http://twitter.com/wesbos">Twitter</a></li>
-            <li><a class="button" href="http://facebook.com/wesbos.developer">Facebook</a></li>
-            <li><a class="button" href="http://wesbos.com">Blog</a></li>
-            <li><a class="button" href="http://wesbos.com/courses">Course Catalog</a></li>
+            <li><a class="button" href="http://andy-delgado.com">Blog</a></li>
+            <li><a class="button" href="http://github.com/adelgado0723">Project Catalog</a></li>
           </ul>
         </li>
       </ul>
@@ -106,6 +95,7 @@
       nav {
         position: relative;
         perspective: 600px;
+        /* border: 10px solid red; */
       }
 
       .cool > li > a {
@@ -117,6 +107,7 @@
         display: inline-block;
         margin: 20px;
         border-radius: 5px;
+        /* border: 10px solid red; */
       }
 
       nav ul {
@@ -125,12 +116,14 @@
         padding: 0;
         display: flex;
         justify-content: center;
+        /* border: 10px solid red; */
       }
 
       .cool > li {
         position: relative;
         display: flex;
         justify-content: center;
+        /* border: 10px solid red; */
       }
 
       .dropdown {
@@ -144,18 +137,23 @@
         transform: translateY(100px);
         will-change: opacity;
         display: none;
+
+        /* border: 10px solid red; */
       }
 
       .trigger-enter .dropdown {
         display: block;
+        /* border: 10px solid red; */
       }
 
       .trigger-enter-active .dropdown {
         opacity: 1;
+        /* border: 10px solid red; */
       }
       .icon {
         width: 300px;
         height: auto;
+        /* border: 10px solid red; */
       }
 
       .dropdownBackground {
@@ -171,10 +169,12 @@
         display: flex;
         justify-content: center;
         opacity: 0;
+        /* border: 10px solid red; */
       }
 
       .dropdownBackground.open {
         opacity: 1;
+        /* border: 10px solid red; */
       }
 
       .arrow {
@@ -184,6 +184,7 @@
         display: block;
         background: white;
         transform: translateY(-50%) rotate(45deg);
+        /* border: 10px solid red; */
       }
 
       .bio {
@@ -192,26 +193,32 @@
         justify-content: center;
         align-items: center;
         line-height: 1.7;
+        /* border: 10px solid red; */
       }
 
       .bio img {
         float: left;
         margin-right: 20px;
+        /* border: 10px solid red; */
       }
 
-      .courses {
+      .projects {
         min-width: 300px;
+        /* border: 10px solid red; */
       }
 
-      .courses li {
+      .projects li {
         padding: 10px 0;
         display: block;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+        /* border: 10px solid red; */
       }
 
       .dropdown a {
         text-decoration: none;
         color: #ffc600;
+        /* border: 10px solid red; */
       }
 
       a.button {
@@ -220,16 +227,17 @@
         padding: 10px;
         color: white;
         margin-bottom: 10px;
+        /* border: 10px solid red; */
       }
 
       /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
-      .button[href*='twitter'] {
+      /* .button[href*='twitter'] {
         background: #019fe9;
       }
       .button[href*='facebook'] {
         background: #3b5998;
-      }
-      .button[href*='courses'] {
+      } */
+      .button[href*='adelgado0723'] {
         background: #ffc600;
       }
     </style>
@@ -248,7 +256,30 @@
           // "this" contains the first one
           this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active');
         }, 150);
-        background.classList.add();
+        background.classList.add('open');
+
+        const dropdown = this.querySelector('.dropdown');
+        const dropdownCoords = dropdown.getBoundingClientRect();
+        const navCoords = nav.getBoundingClientRect();
+
+        const coords = {
+          height: dropdownCoords.height,
+          width: dropdownCoords.width,
+          top: dropdownCoords.top - navCoords.top,
+          left: dropdownCoords.left - navCoords.left
+        };
+
+        console.log(`Coords => ` + JSON.stringify(coords));
+        console.log(`Nav Coords => ` + JSON.stringify(navCoords));
+        // Setting position and size of the background div
+        background.style.setProperty('width', `${coords.width}px`);
+        background.style.setProperty('height', `${coords.height}px`);
+        background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+      }
+
+      function handleLeave() {
+        this.classList.remove('trigger-enter', 'trigger-enter-active');
+        background.classList.remove('open');
       }
 
       triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
