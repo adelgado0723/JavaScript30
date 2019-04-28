@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Whack A Saur!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Whack-a-saur! <span class="score">0</span></h1>
+
+    <div class="game">
+      <div class="hole hole1">
+        <div class="saur">
+          <span class="x">X</span>
+        </div>
+      </div>
+      <div class="hole hole2">
+        <div class="saur">
+          <span class="x">X</span>
+        </div>
+      </div>
+      <div class="hole hole3">
+        <div class="saur">
+          <span class="x">X</span>
+        </div>
+      </div>
+      <div class="hole hole4">
+        <div class="saur">
+          <span class="x">X</span>
+        </div>
+      </div>
+      <div class="hole hole5">
+        <div class="saur">
+          <span class="x">X</span>
+        </div>
+      </div>
+      <div class="hole hole6">
+        <div class="saur">
+          <span class="x">X</span>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button onClick="startGame()">Start!</button>
+    </div>
+    <script>
+      const holes = document.querySelectorAll('.hole');
+      const scoreBoard = document.querySelector('.score');
+      const saurs = document.querySelectorAll('.saur');
+      const saurImages = [
+        'stegosaurus-silhouette.svg',
+        't-rex-silhouette.svg',
+        'triceratops-silhouette.svg',
+        'velociraptor-silhouette.svg'
+      ];
+      let lastHole;
+      let lastSaurImage;
+      let score = 0;
+      let timeUp = false;
+
+      function randomSaurImage(saurImages) {
+        const index = Math.floor(Math.random() * saurImages.length);
+        const saurImage = saurImages[index];
+        if (saurImage === lastSaurImage) {
+          console.log('Same saur image as last time');
+          return randomSaurImage(saurImages);
+        }
+        lastSaurImage = saurImage;
+        return saurImage;
+      }
+
+      function randomTime(min, max) {
+        return Math.round(Math.random() * (max - min) + min);
+      }
+
+      function randomHole(holes) {
+        const index = Math.floor(Math.random() * holes.length);
+        const hole = holes[index];
+        if (hole === lastHole) {
+          console.log('Same hole as last time');
+          return randomHole(holes);
+        }
+        lastHole = hole;
+        return hole;
+      }
+
+      function peep() {
+        const time = randomTime(1000, 3000);
+        const hole = randomHole(holes);
+        const saurImage = randomSaurImage(saurImages);
+        // set saur url
+        const saur = hole.querySelector('.saur');
+        const cross = lastHole.querySelector('.x');
+
+        cross.classList.remove('hit');
+        saur.style.backgroundImage = `url(${saurImage})`;
+        hole.classList.add('up');
+
+        setTimeout(() => {
+          hole.classList.remove('up');
+          if (!timeUp) peep();
+        }, time);
+      }
+
+      function startGame() {
+        scoreBoard.textContent = 0;
+        timeUp = false;
+        score = 0;
+        peep();
+        setTimeout(() => (timeUp = true), 15000);
+      }
+      function bonk(e) {
+        if (!e.isTrusted) return; //cheating
+        score++;
+        const cross = this.querySelector('.x');
+        cross.classList.add('hit');
+        this.parentNode.classList.remove('up');
+        scoreBoard.textContent = score;
+      }
+      saurs.forEach(saur => saur.addEventListener('click', bonk));
+    </script>
+  </body>
+</html>
