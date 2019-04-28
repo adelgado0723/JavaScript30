@@ -97,8 +97,8 @@
         const saur = hole.querySelector('.saur');
         const cross = lastHole.querySelector('.x');
 
-        cross.classList.remove('hit');
         saur.style.backgroundImage = `url(${saurImage})`;
+        cross.classList.remove('hit');
         hole.classList.add('up');
 
         setTimeout(() => {
